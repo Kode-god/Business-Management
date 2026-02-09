@@ -19,8 +19,10 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: process.env.VITE_API_URL || "https://business-management-virid.vercel.app"
-  credentials: true
+  origin: process.env.VITE_API_URL || "https://business-management-virid.vercel.app",
+  credentials: true,
+  methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"],
+  allowedHeaders: ["Content-Type","Authorization"]
 }));
 
 app.options("*", cors());
